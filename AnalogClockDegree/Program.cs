@@ -10,16 +10,12 @@ namespace AnalogClockDegree
     {
         static void Main(string[] args)
         {
-            countAngle();
-            
-
-            
-
-
+            countAngle(); 
+                       
 
         }
 
-        private static void countAngle()
+        private static double countAngle()
         {
             /*In an analog clock, there are 12 hours and 60 minutes. therefore the hour arrow moves 30 degrees for each hour,
              * while the minutes arrow moves 6 degrees per minute             
@@ -29,11 +25,18 @@ namespace AnalogClockDegree
             Console.Write("Enter the hour (1-12): ");
             int hour = int.Parse(Console.ReadLine());
 
-            if (hour <= 0 || hour > 12) return;
+            if (hour <= 0 || hour > 12)
+            {
+                Console.WriteLine("Please Enter the the corect range");
+                return countAngle();
+            }
 
             Console.Write("Enter the minute (0-59): ");          
             int minute = int.Parse(Console.ReadLine());
-            if (minute < 0 || hour > 59) return;
+            if (minute < 0 || minute > 59) {
+                Console.WriteLine("Please Enter the correct range");
+                return countAngle();
+            }
 
 
             //Angles
@@ -51,6 +54,8 @@ namespace AnalogClockDegree
 
             //for the console not to close imediately after the output, we prompt input from user again
             Console.ReadLine();
+
+            return lesserAngle;
         }
     }
 }
